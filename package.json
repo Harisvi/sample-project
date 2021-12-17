@@ -1,0 +1,15 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "loading page for css",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass":"node-sass scss/main.scss advancecss.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "node-sass": "^6.0.1"
+  }
+}

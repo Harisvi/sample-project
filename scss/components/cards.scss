@@ -1,0 +1,121 @@
+.card{
+    perspective: 1500rem;
+    -moz-perspective: 1500rem;
+    position: relative;
+    height: 50rem;
+    align-content: center;
+  
+    float: left;
+
+    &__side{
+         height: 50rem;
+         width: 25rem;
+         transition: all .8s ease;
+         position: absolute;
+         top: 0;
+         left: 0;
+         //width: 100%;
+         overflow: hidden;
+         backface-visibility: hidden;
+         border-radius: 5px;
+         box-shadow: 0 1rem 2rem rgba($color: $color-black, $alpha: .6);
+
+         &-front{
+            background-color: $color-white;
+        }
+        &-back{
+            transform: rotateY(180deg);
+            &-1{
+                background-image: linear-gradient(to right bottom , $color-orange-light, $color-orange-dark);
+
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom , $color-light-green, $color-dark-green);
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom , $color-blue, $color-blue-1);
+
+            }
+        }
+
+    }
+    &:hover &__side-front{
+        transform: rotateY(-180deg);
+    }
+    &:hover &__side-back{
+        transform: rotateY(0);
+    }
+
+    &__picture{
+            background-size: cover;
+            height: 23rem;
+            background-blend-mode: screen;
+
+        &-1{
+            background-image: linear-gradient(to right bottom , $color-orange-light, $color-orange-dark),
+             url(./scss/img/nat-5.jpg);
+        }
+        &-2{
+            background-image: linear-gradient(to right bottom , $color-light-green, $color-dark-green),
+            url(./scss/img/nat-6.jpg);
+        }
+        &-3{
+            background-image: linear-gradient(to right bottom , $color-blue, $color-blue-1),
+            url(./scss/img/nat-7.jpg);
+        }
+    }
+    &__heading{
+        font-size: 1.5rem;
+        font-family: 300;
+        color: $color-white;
+        text-align: right;
+        text-transform: uppercase;
+        position: absolute;
+        top: 15rem;
+        left: 5rem;
+        width: 75%;        
+    }
+    &__heading-span{
+        padding: 1rem 1.5rem;
+        box-decoration-break: clone;
+
+        &-1{
+            background-image: linear-gradient(to right bottom , rgba($color-orange-light, .8) ,rgba($color-orange-dark,.8)),
+        }
+    }
+    &__details{
+        ul{
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey;
+                }
+            }
+        }
+    }
+
+    &__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__price-box{
+       text-align: center;
+       margin-bottom: 5rem;
+    }
+    &__price-only{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100
+    }
+}

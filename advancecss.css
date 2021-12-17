@@ -1,0 +1,686 @@
+/*
+$breakpoint choises & media query manager
+phone-(0- 600px)
+tab-portarit -(600- 900px)
+tab- land -(900- 1200px)
+normal desktop- (1200- 1800px)
+large desktop- 1800px+
+
+
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 37.5%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 62.5%; } }
+
+body {
+  line-height: 1.7;
+  padding: 3rem;
+  color: gray;
+  box-sizing: border-box; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  70% {
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  70% {
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translatey(10rem); }
+  100% {
+    opacity: 1;
+    transform: translatey(0); } }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  padding: 1rem; }
+
+.heading-primary-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3rem;
+  animation-name: moveInLeft;
+  animation-duration: 5s; }
+  @media (max-width: 37.5em) {
+    .heading-primary-main {
+      font-size: 2rem;
+      letter-spacing: 1rem;
+      font-weight: 300; } }
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1.8rem;
+  animation-name: moveInRight;
+  animation-duration: 5s;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1); }
+  @media (max-width: 37.5em) {
+    .heading-primary-sub {
+      font-size: 1rem;
+      letter-spacing: 1rem;
+      font-weight: 300; } }
+
+.heading-secondary {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  background-image: linear-gradient(to right, #2de07293, #12790ec0);
+  -webkit-background-clip: text;
+  letter-spacing: .7rem;
+  color: transparent;
+  transition: all 0.3s; }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 1rem;
+      letter-spacing: .7rem;
+      font-weight: 300; } }
+  .heading-secondary:hover {
+    transform: skewY(3deg) skewX(10deg) scale(1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.3); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2rem 2rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative; }
+
+.btn:active {
+  transform: translatey(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+.btn:hover {
+  transform: translatey(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+
+.btn-white {
+  background-color: #000;
+  color: #fff; }
+
+.btn-green {
+  background-color: #2de07293;
+  color: #fff; }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 0;
+  width: 0;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s; }
+
+.btn-white::after {
+  background-color: #fff; }
+
+.btn-green::after {
+  background-color: #fff; }
+
+.btn:hover::after {
+  transform: scalex(1.5) scaleY(1.3);
+  opacity: 0; }
+
+.btn-animated {
+  animation-name: moveInBottom;
+  animation-duration: 4s; }
+
+.btn-text:link, .btn-text:visited {
+  color: #2de07293;
+  border-bottom: 1px solid #2de07293;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px; }
+
+.btn-text:hover {
+  background-color: #2de07293;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(0); }
+
+.card {
+  perspective: 1500rem;
+  -moz-perspective: 1500rem;
+  position: relative;
+  height: 50rem;
+  align-content: center;
+  float: left; }
+  .card__side {
+    height: 50rem;
+    width: 25rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6); }
+    .card__side-front {
+      background-color: #fff; }
+    .card__side-back {
+      transform: rotateY(180deg); }
+      .card__side-back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side-back-2 {
+        background-image: linear-gradient(to right bottom, #2de07293, #12790ec0); }
+      .card__side-back-3 {
+        background-image: linear-gradient(to right bottom, #0840fa, #600fe4); }
+  .card:hover .card__side-front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side-back {
+    transform: rotateY(0); }
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; }
+    .card__picture-1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(./scss/img/nat-5.jpg); }
+    .card__picture-2 {
+      background-image: linear-gradient(to right bottom, #2de07293, #12790ec0), url(./scss/img/nat-6.jpg); }
+    .card__picture-3 {
+      background-image: linear-gradient(to right bottom, #0840fa, #600fe4), url(./scss/img/nat-7.jpg); }
+  .card__heading {
+    font-size: 1.5rem;
+    font-family: 300;
+    color: #fff;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    top: 15rem;
+    left: 5rem;
+    width: 75%; }
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; }
+    .card__heading-span-1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8)); }
+  .card__details ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto; }
+    .card__details ul li {
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 1rem; }
+      .card__details ul li:not(:last-child) {
+        border-bottom: 1px solid gray; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .card__price-box {
+    text-align: center;
+    margin-bottom: 5rem; }
+  .card__price-only {
+    font-size: 1.5rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  padding: 6rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  transform: skewx(-12deg);
+  margin-bottom: 2rem; }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateY(-1.5rem) skewX(12deg);
+    position: relative; }
+  .story__text {
+    font-size: 2rem;
+    transform: skewx(12deg); }
+  .story__img {
+    height: 100%; }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50% -50%); }
+  .story:hover .story__img {
+    filter: blur(3px) brightness(70%);
+    transform: translateX(-4rem) scale(1); }
+
+.form {
+  margin-left: 2rem; }
+  .form-group:not(:last-child) {
+    margin-bottom: 2rem; }
+  .form-input {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    font-size: inherit;
+    color: inherit;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid transparent;
+    width: 45%;
+    display: block; }
+    .form-input:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      border-bottom: 3px solid #2de07293; }
+    .form-input:focus:invalid {
+      border-bottom: 3px solid #e61111; }
+    .form-input::-webkit-input-placeholder {
+      color: rgba(90, 88, 88, 0.863); }
+  .form-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .9rem;
+    display: block;
+    transition: all .3s; }
+  .form-input:placeholder-shown + .form-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem); }
+  .form-group-radio {
+    width: 20rem;
+    display: inline-block; }
+  .form-radio-label {
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4rem; }
+  .form-radio-input {
+    display: none; }
+  .form-radio-button {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid #e61111;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: -.5;
+    left: 0; }
+    .form-radio-button::after {
+      content: "";
+      width: 1.3rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #e61111;
+      opacity: 0;
+      transition: opacity .2s; }
+  .form-radio-input:checked ~ .form-radio-label .form-radio-button::after {
+    opacity: 1; }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .1; }
+  .bg-video-content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
+.composition {
+  position: relative;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 2px; }
+
+.p1 {
+  position: absolute;
+  left: 0;
+  top: 0; }
+  .p1:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    z-index: 20; }
+
+.p2 {
+  position: absolute;
+  right: 1rem;
+  top: 2rem; }
+  .p2:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    z-index: 20; }
+
+.p3 {
+  position: absolute;
+  left: 20%;
+  top: 10rem; }
+  .p3:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    z-index: 20; }
+
+.feature-box {
+  font-size: 1.6rem;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  float: left;
+  margin: 1rem 1rem;
+  height: 25rem;
+  width: 22rem; }
+  .feature-box__icon {
+    font-size: 6rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #2de07293, #12790ec0);
+    -moz-background-clip: text;
+    color: transparent; }
+  .feature-box:hover {
+    transform: translateY(-1.5rem); }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right, #2de07293, #12790ec0), url(../css/img/Hills-near-Chennai.jpg);
+  background-position: center;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  @media (max-width: 37.5em) {
+    .header {
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
+
+.logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
+
+.logo {
+  height: 3.5rem; }
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.heading-teritary {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee .5;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+    @media (max-width: 37.5em) {
+      .row:not(:last-child) {
+        margin-bottom: 5rem; } }
+  @media (max-width: 37.5em) {
+    .row {
+      max-width: 50rem; } }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+    float: left; }
+    .row .col-1-of-2:not(:last-child) {
+      margin-right: 6rem; }
+    @media (max-width: 37.5em) {
+      .row .col-1-of-2 {
+        width: 100% !important; } }
+  .row .col-1-of-4 {
+    width: calc((100% -3 * 6rem) / 4);
+    float: left; }
+    .row .col-1-of-4:not(:last-child) {
+      margin-right: 6rem; }
+    @media (max-width: 37.5em) {
+      .row .col-1-of-4 {
+        width: 100% !important; } }
+  .row .col-1-of-3 {
+    width: calc((100% -2 * 6rem) / 3);
+    float: left;
+    /* &:not(:last-child){
+            margin-right: $grid-horizontal;
+            @include respond(tap-port){
+                margin-right: 0;  
+            }
+        }
+        @include respond(tap-port){
+            width: 100% !important;  
+        }
+        @include respond(phone){
+            width: 100% !important;  //1rem=12px
+        }*/ }
+
+.footer {
+  background-color: #f7f7f7;
+  padding: 15rem 0;
+  font-size: 1.4rem; }
+  .footer__logo-box {
+    text-align: center;
+    margin-bottom: 8rem; }
+  .footer__logo {
+    width: 12rem;
+    height: auto; }
+  .footer__list {
+    list-style: none; }
+  .footer__item {
+    display: inline-block; }
+    .footer__item:not(last-child) {
+      margin-right: 1.5rem; }
+  .footer__link:visited, .footer__link:link {
+    color: #f7f7f7;
+    background-color: gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; }
+  .footer__link:hover, .footer__link:active {
+    color: #2de07293;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+    transform: translateY(5deg) scale(1); }
+
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  z-index: 2000; }
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-image: radial-gradient(#2de07293, #12790ec0);
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  z-index: 1000;
+  transition: transform .8s;
+  text-align: center; }
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.05, 0, 0.5, 0.04); }
+
+.navigation__list {
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.navigation__item {
+  margin-bottom: 1rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 230%;
+  transition: all .5s; }
+
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: gray;
+  transform: translateX(1rem); }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__icon {
+  position: relative;
+  margin: 3.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 3px;
+    background-color: #000;
+    display: inline-block;
+    left: -1.2rem; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0; }
+  .navigation__icon::before {
+    top: -.9rem; }
+  .navigation__icon::after {
+    top: .9rem; }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 20rem 0;
+  margin-top: -20vh; }
+
+.section-features {
+  padding: 25rem 0;
+  background-image: linear-gradient(to right, #2de07293, #12790ec0), url(../css/img/Hills-near-Chennai.jpg);
+  background-position: center;
+  background-size: cover;
+  transform: skewY(-3deg);
+  margin-top: -20vh; }
+  .section-features > * {
+    transform: skewY(3deg);
+    margin-top: -10rem;
+    margin-left: 10rem; }
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 20rem 0 50rem 0;
+  margin-top: -20vh;
+  height: 90rem; }
+
+.section-stories {
+  padding: 15rem 0;
+  position: relative; }
+  .section-stories a {
+    align-items: center; }
+
+.section-book {
+  background-image: linear-gradient(to right, #2de07293, #12790ec0);
+  padding: 15rem 0; }
+
+.book {
+  background-image: linear-gradient(109deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 50%, transparent 50%), url(./scss/img/nat-10.jpg);
+  height: 50rem;
+  background-size: 100%;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 3px; }
